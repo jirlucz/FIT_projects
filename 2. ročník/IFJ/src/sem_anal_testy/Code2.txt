@@ -1,0 +1,2 @@
+var id1 : Int = 3
+var id2 : Int = id3

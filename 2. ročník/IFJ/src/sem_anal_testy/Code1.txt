@@ -1,0 +1,8 @@
+var id1 : Int = 3
+let id2 : Int = 4
+if (id1 < id2){
+    var id3 : Double = 3
+}
+else{
+    var id4 : Double = 3
+}

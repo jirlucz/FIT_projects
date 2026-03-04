@@ -1,0 +1,54 @@
+This is BibTeX, Version 0.99d (TeX Live 2021)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: proj4.aux
+The style file: csplainnat.bst
+Database file #1: literatura.bib
+Warning--I'm ignoring NaPocitaci's extra "howpublished" field
+--line 113 of file literatura.bib
+Warning--I'm ignoring aira's extra "howpublished" field
+--line 131 of file literatura.bib
+Warning--I'm ignoring Metro's extra "howpublished" field
+--line 149 of file literatura.bib
+Warning--empty year in aira
+You've used 10 entries,
+            2898 wiz_defined-function locations,
+            692 strings with 6584 characters,
+and the built_in function-call counts, 3322 in all, are:
+= -- 298
+> -- 130
+< -- 9
++ -- 46
+- -- 36
+* -- 199
+:= -- 572
+add.period$ -- 39
+call.type$ -- 10
+change.case$ -- 22
+chr.to.int$ -- 10
+cite$ -- 21
+duplicate$ -- 184
+empty$ -- 306
+format.name$ -- 58
+if$ -- 688
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 7
+newline$ -- 65
+num.names$ -- 50
+pop$ -- 96
+preamble$ -- 2
+purify$ -- 22
+quote$ -- 0
+skip$ -- 111
+stack$ -- 0
+substring$ -- 41
+swap$ -- 22
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 100
+warning$ -- 1
+while$ -- 31
+width$ -- 0
+write$ -- 144
+(There were 4 warnings)

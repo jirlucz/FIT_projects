@@ -1,0 +1,69 @@
+% Jiri Kotek xkotek09
+% VUT FIT 2023
+
+
+\documentclass [11pt, a4paper] {article}
+\usepackage[czech]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{xurl}
+\usepackage{hyperref}
+\usepackage[margin=1.5cm]{geometry}
+\def\UrlBreaks{\do\/\do-}
+\DeclareUrlCommand\url{\def\UrlLeft{<}\def\UrlRight{>} \urlstyle{tt}}
+\providecommand{\uv}[1]{\quotedblbase #1\textquotedblleft}
+\usepackage{natbib} 
+\renewcommand*\rmdefault{ptm}
+
+\begin{document}
+    
+    \begin{titlepage}
+        \begin{center}
+        \Huge
+        \textsc{Vysoké učení technické v Brně\\
+        \huge
+        {Fakulta informačních technologií}\\}
+        \vspace{\stretch{0.382}}
+        \LARGE
+        Typografie a publikování\,--\,4. projekt \\
+        \Huge{Typografie}
+        \vspace{\stretch{0.618}}
+        \end{center} 
+        {\Large \today \hfill
+        Jiří Kotek}
+    \end{titlepage}
+
+    \section*{Typografie}
+    V~dřívějších dobách dovedli psát pouze mniši, kteří ručně přepisovali rozsáhlé náboženské texty. To zapříčiňovalo, že psaných knih bylo velmi málo a~byly velmi drahé. To vše se změnilo v~patnáctém století, s příchodem knihtisku.
+    Právě ten, spolu s objevením papíru, zajistil snažší dostupnost psaných textů a~dal vniknout novému oboru \,--\, typografii.\cite{Georges}
+    
+    Typografi se stávali nejen přeučení písaři, ale i~napřiklad zlatníci. Práce typografa byla totiž zavislá na~malých detailech v~odlévání, a~rytí jednotlivých symbolů. \cite{Dusong} 
+
+    Ve srovnání s ručním psaní textů byl knihtisk několikanásobně rychlejší, ale i~zde bylo co zlepšovat. 
+    Většího pokroku se knihtisku dostavilo až v~devatenáctém století, kdy se začal celý proces sázení automatizovat, pomocí mechanických sázecích strojů. 
+    Po druhé světové válce přišla fotosazba. Metoda, při které se exponovala jednotlivá písmena z~otočného disku na~světlocitlivý materiál, který byl po vyvolání pomocí ofsetové desky vytištěn.
+    S rozmachem počítačů v~80.~letech přišla i~digitální sazba, jejíž největší výhodou bylo to, že umožňovala okamžitou úpravu textu, přímo na~obrazovce. \cite{JanNemec}
+
+    Při psaní elektronických dokumentů musíme dodržovat určité typografické zvyklosti, větší pozornost bychom měli věnovat především při zápisu: jednotek veličin, datumů nebo spojovníku či pomlčky. \cite{NaPocitaci}
+
+    S globalizací internetu přichází i~nová typografická pravidla určená pro webové stránky, které mají proměnnou velikost a~počet stran. 
+    Typograf nebo grafik si tak musí ověřovat výstupy své práce ověřovat na~různých zařízeních s různými parametry. \cite{JirKaspar}
+
+    To zapřičiňuje, že musí existovat velké množství proměnných fontů, jejíž podpora v~grafických nástrojích je omezená. 
+    Tento problém se snaží vyřešit nová koncepce polyfluidní typografie, která umožňuje automatické vypočítávání velikosti fontů v~rozmezí různých šířek obrazovky pomocí jazyka CSS. \cite{Zeman2019}
+
+    Typografie je na~většině webů to první, čeho si všimneme, proto je vzhled velmi důležitý. Pokud se nám nedaří dosáhnout požadované návštěvnosti, jedna z~příčin může být i~nevhodně zvolená typografická pravidla. \cite{aira}
+
+    Mnoho světových vědeckých časopisů, si zakládá na~tom, že jsou už na~první pohled adlišitelné, právě svojí grafikou a~volbou fontu. Některé z~nich používají font, který mají vytvoření přímo na~míru. \cite{Baldwin}
+    
+    I~u~náš nalezneme významné tvůrce fontů. Jeden z~nich je například Vojtěch Říha, minulý rok představil nové písmo, které budeme moci v~budoucnu potkávat v~hromadné dopravě v~Praze. Důraz byl kladen především na~snadnou čitelnost písma. \cite{Metro}
+
+    Studie "The Influence of Typography on Algorithms" se zabívá jaký, vliv na~rychlosti a~komfort čtení má velikost, řádkování a~druh písma. Výzkum naznačuje, že vhodná volba písma může mít pozitivní vliv na~čtení. \cite{Vision}
+
+    \newpage
+    \renewcommand{\refname}{Literatura}
+    \bibliographystyle{csplainnat}
+    \bibliography{literatura}   
+
+\end{document}
+
+ 

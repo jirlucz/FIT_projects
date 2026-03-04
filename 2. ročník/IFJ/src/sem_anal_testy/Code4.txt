@@ -1,0 +1,5 @@
+func foo(_id1 : Int, id2 : Int) -> Int {
+    var id3 : Int = id1 + id2
+    return id3
+}
+foo(5, id2 : 2)

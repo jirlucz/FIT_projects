@@ -1,0 +1,12 @@
+|           | t [ms]    					  | 
+|-----------|---------------------------------|
+| static    |	78.80 ms  (46:192 ms)         |          
+| dynamic   |   51.08 ms  (37:105 ms)         |          
+| guided,1  |   48.58 ms  (34:93  ms)         |   
+| guided,2  |   54.38 ms  (37:105  ms)        |   
+| guided,4  |   51.12 ms  (34:104  ms)        | 
+| guided,8  |   54.70 ms  (34:84  ms)         | 
+| guided,16 |   59.36 ms  (37:115  ms)        | 
+
+Uveden je průměrný čas z 50 běhů programu při 36 vláknnech ve formátu: Avg_time (min:max)    
+Případně <guided, chunksize>

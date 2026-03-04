@@ -1,0 +1,70 @@
+\newcommand{\noopsort}[1]{} \newcommand{\printfirst}[2]{#1}
+  \newcommand{\singleletter}[1]{#1} \newcommand{\switchargs}[2]{#2#1}
+\begin{thebibliography}{10}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Arnold et~al.(2020)Arnold, Katie,, Oliver]{Vision}
+{\sc Arnold}, W. -- {\sc Katie}, S. -- {\sc Oliver}, P.
+\newblock The Influence of Typography on Algorithms that Predict the Speed and
+  Comfort of Reading.
+\newblock \emph{Vision}. březen 2020, 4.
+
+\bibitem[BAJTLER(rev. 7. září 2022)]{Metro}
+{\sc BAJTLER}, M.
+\newblock Čitelnost nade vše. Font pro nový navigační systém metra
+  vytvořila písmolijna Vojtěcha Říhy.
+\newblock [online], rev. 7. září 2022.
+\newblock [vid. 2023-04-16].
+
+\bibitem[BALDWIN(2010)]{Baldwin}
+{\sc BALDWIN}, M.~P.
+\newblock Typography and Graphic Design.
+\newblock \emph{Quarterly Journal of the Royal Meteorological Society}. leden
+  2010, 136.
+
+\bibitem[DUSONG(1997)]{Dusong}
+{\sc DUSONG}, J.-L.
+\newblock \emph{Typografie od olova k počítačům}.
+\newblock Svojtka a Vašut, 1997.
+\newblock ISBN 80-7180-296-4.
+
+\bibitem[JEAN(1987)]{Georges}
+{\sc JEAN}, G.
+\newblock \emph{Writing: The story of alphabet and scripts}.
+\newblock Harry N. Abrams, Inc., 1987.
+\newblock ISBN 0-8109-2893-0.
+
+\bibitem[JIRÁSEK(2016)]{JirKaspar}
+{\sc JIRÁSEK}, M.~K.
+\newblock Možnosti a limity webové typografie.
+\newblock Bakalářská práce, Masarykova univerzita, Fakulta informatiky
+  Brno, 2016.
+
+\bibitem[LAURENČÍK(rev. 27. červenec 2018)]{NaPocitaci}
+{\sc LAURENČÍK}, M.
+\newblock Typografická pravidla.
+\newblock [online], rev. 27. červenec 2018.
+\newblock [vid. 2023-04-16].
+
+\bibitem[MARČÍKOVÁ()]{aira}
+{\sc MARČÍKOVÁ}, V.
+\newblock 10 pravidel webové typografie, které by měl každý znát.
+\newblock [online].
+\newblock [vid. 2023-04-16].
+
+\bibitem[NĚMEC(2021)]{JanNemec}
+{\sc NĚMEC}, J.
+\newblock Současná typografie v souvislostech výtvarné výchovy.
+\newblock Bakalářská práce, Univerzita Karlova, Pedagogická fakulta, 2021.
+
+\bibitem[ZEMAN(2019)]{Zeman2019}
+{\sc ZEMAN}, P.
+\newblock Variable typography in web.
+\newblock \emph{Hrčak}. 2019, 7, 4, s.~234--239.
+\newblock [online], [cit. 2023-04-16].
+
+\end{thebibliography}

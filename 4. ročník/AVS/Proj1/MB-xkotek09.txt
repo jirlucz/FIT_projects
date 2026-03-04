@@ -1,0 +1,102 @@
+#### Stručně ale věcně odpovězte na následující otázky: ######
+
+1. Zkompilujte ref verzi kódu. Byla hlavní výpočetní smyčka kompilátorem automaticky vektorizována? 
+Pokud ne, stručně popište proč a co vektorizaci brání.
+Pokud ano, jaká je efektivita vektorizace? (0.5b)
+=============================================================================
+Hlavní výpočetní smyčka nebyla vektorizována. 
+Hlavním důvodem je datová závislost RAW mezi aktuálně prováděnou iterací i, která počítá s hodnotami proměnných (zReal, zImag) spočítanými v předešlé iteraci i-1.
+
+
+2. Kolika GFLOPS a GINTOPS dosahuje smyčka ve funkci mandelbrot u ref verze kódu při 
+překladu s -O0 (žádné optimalizace) a -O3 (maximální optimalizace)? 
+Byly použity FMA instrukce? Jak jste k tomu přišli? Jaká instrukční sada (IS) byla použita? (1b)
+=============================================================================
+- O0:
+-- 1.15 GFLOPS
+-- 0.29 GINTOPS
+-- IS: AVX
+-- FMA: ne
+
+- O3:
+-- 3.32 GFLOPS
+-- 0.40 GINTOPS
+-- IS:AVX
+-- FMA: ano, v Assembly se vyskytují např. instrukce vfmaadd213ss 
+
+
+3. Přeložte ref vezi kódu s přepínačem -O0 (žádné optimalizace) a -O3 (maximální optimalizace). (2b)
+- Co se stalo s paměťovými přístupy u smyček? Popište číslem s jednotkou/procentuálně kolik je paměťových vs. výpočetních instrukcí 
+- Ukazuje se smyčka ve funkci mandelbrot v RoofLine modelu? Proč? (Nápověda: AI, Survey)
+==============================================================================
+- O0:
+-- mandelbrot:    48% : 7% : 29% : 16%       Memory: Compute : Mixed(Scalar) : Other
+-- calculateMandelbrot: 67% : 12% : 9% : 12% Memory: Compute : Mixed(Scalar) : Other
+
+- O3:
+-- mandelbrot:    81% : 19%                  Comp:Other
+-- calculateMandelbrot: 42% : 14%            Mem:Comp
+
+Slovní vyjádření (1-2 krátké věty):
+Ano, smyčka se ve funkci Mandelbrot zobrazuje v Roofline modelu. 
+Je označena jako „Memory bound“, výkon této smyčky je omezen šířkou pásma paměti, nikoli výpočetním výkonem CPU.
+
+4. Přeložte program s -O0 (žádné optimalizace). Na jakou výkonostní linii v RoofLine modelu 
+   cílíme s jednotlivými implementacemi? (1b)
+   Uveďte název a výkonnost včetně jednotky.
+==============================================================================
+- ref:   Scalar Add Peak - 6.57 GFLOPS
+- line:  SP Vector Add Peak (single threaded) - 79.58 GFLOPS
+- batch: SP Vector Add Peak (single threaded) - 79.54 GFLOPS
+
+
+5. Jaká byla dosažena výkonnost v Intel Advisoru pro implementace ref, line a batch
+(v GFLOPS) při použití přepínačů -O0 a -O3? (1b)
+==============================================================================
+- ref:
+-- O0: 1.14 GFLOPS (celý program), 1.157 GFLOPS (hlavní smyčka)
+-- O3: 3.03 GFLOPS (celý program), 0.839 GFLOPS (hlavní smyčka)
+
+- line:
+-- O0: 1.44 GFLOPS (celý program), 1.507 GFLOPS (hlavní smyčka)
+-- O3: 10.97 GFLOPS (celý program), 18.72 GFLOPS (hlavní smyčka)
+
+- batch:
+-- O0: 1.25 GFLOPS (celý program), 1.411 GFLOPS (hlavní smyčka)
+-- O3: 6.46 GFLOPS (celý program), 14.392 GFLOPS (hlavní smyčka)
+
+
+6. Porovnejte implementaci referenčního řešení oproti "Line" a "Batch" implementaci. 
+Jakým způsobem jsou načítána data, proč, a jaký to má vliv na výkon. (1b)
+==============================================================================
+- line:  Zpracovává a načítá data po blocích v rámci jednoho řádku. Oproti referenčnímu řešení jsme schopni vektorizovat výpočet a provádět jej nad více body najednou. 
+- batch: Zpracovává data po 2D blocích. Každý blok je složen z "n" řádků a "m" sloupců. To umožňuje ještě vyšší urychlení výpočtu, protože jsme schopni celý blok umístit blíže procesoru do různých částí cache. 
+         Sníží se počet přístupů do hlavní paměti, který nejvíce brzdí výpočet.
+
+
+7. Porovnejte Roofline všech modelů - Jaká je vaše aritmetická intenzita? 
+Dokázali byste ji přibližně spočítat i ručně a jak? (1b)
+============================================================================== 
+- ref AI: RoofLine:     0.25 FLOP/Byte (O3)     Summary - FP Arithmetic intensity: 13.888
+- line AI: RoofLine:    0.414 FLOP/Byte (O3)    Summary - FP Arithmetic intensity: 0.380
+- batch AI: RoofLine:  0.24 FLOP/Byte (O3)     Summary - FP Arithmetic intensity: 0.210
+
+Přibližný výpočet:
+Vypočítáme pomocí vzorce \frac{a}{x*y}, kde  a: Počet aritmetických operací ve floating point
+                                             x: počet přístupů do paměti
+                                             y: velikost proměnné
+
+8. Komentujte vliv velikosti cache na výkonnost a chování na větších 
+velikostech domény. (1b)
+==============================================================================
+Velikost paměti cache výrazně ovlivňuje rychlost výpočtu především kvůli snížení počtu přístupu do hlavní paměti. 
+S větší pamětí cache není nutné provádět načítání dat tak často, a jsme schopni déle využít maximálního výpočetního výkonu procesoru.
+Při větších velikostech domény může docházet častěji k překročení kapacity cache, čímž se zvyšuje počet načítání nových dat a výkon začne klesat.
+
+9. Jaký vliv na výkonnost má symetrie? Lze tento rozdíl pozorovat v Intel Advisor? 
+(nápověda: instrukce) (0.5b)
+==============================================================================
+Jsme schopni ušetřit polovinu výpočtu. V rámci vypočtu ukládáme výsledky do 2 paměťových míst. 
+V Advisoru můžeme pozorovat, snížení aritmetické intenzity.
+   Bez symetrie FP AI 0.213
+   Se symetrii FP AI 0.210
